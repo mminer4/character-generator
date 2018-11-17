@@ -73,22 +73,26 @@ scoundrel_hash = {
     }
 }
 
-def generate_creature(base_stats_json, creature_hash)
-    new_creature = JSON.parse(base_stats_json)
+def process_dependent_stats(new_creature, stats)
+    new_creature["health"] = process_health(stats["vitality"])
+    new_creature["mana"] = process_mana(stats["mental"])
+    new_creature["initiative"] = process_initiative(stats["cunning"])
+end
+
+def generate_creature(base_stats, creature)
+    new_creature = JSON.parse(base_stats)
     
-    new_creature["class"] = creature_hash["class"]
+    new_creature["class"] = creature["class"]
 
-    stats_hash = new_creature["stats"]
+    stats = new_creature["stats"]
 
-    #creature_hash["stats"]
+    #creature["stats"]
 
-    creature_hash["stats"].each do |stat_name, value|
-        stats_hash["#{stat_name}"] = value
+    creature["stats"].each do |stat_name, value|
+        stats["#{stat_name}"] = value
     end
 
-    new_creature["health"] = process_health(stats_hash["vitality"])
-    new_creature["mana"] = process_mana(stats_hash["mental"])
-    new_creature["initiative"] = process_initiative(stats_hash["cunning"])
+    process_dependent_stats(new_creature, stats)
 
     new_creature.to_json
 end
