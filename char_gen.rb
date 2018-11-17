@@ -1,4 +1,3 @@
-
 require 'json'
 
 # ruby hash but convert to JSON for easy access for battle system
@@ -24,6 +23,43 @@ base_creature = {
     :initiative => 50
 }.to_json
 
+apprentice = {
+    "class" => "apprentice",
+    "stats" => {
+        "mental" => 8,
+        "enmity" => 7
+    }
+}
+
+brawler = {
+    "class" => "brawler",
+    "stats" => {
+        "might" => 7,
+        "mental" => 6,
+        "vitality" => 6,
+        "resolve" => 6
+    }
+}
+
+initiate = {
+    "class" => "initiate",
+    "stats" => {
+        "mental" => 7,
+        "influence" => 7,
+        "resolve" => 6
+    }
+}
+
+scoundrel = {
+    "class" => "scoundrel",
+    "stats" => {
+        "cunning" => 7,
+        "mental" => 6,
+        "enmity" => 6,
+        "luck" => 1
+    }
+}
+
 def process_health(vitality)
     return vitality * 5
 end
@@ -35,43 +71,6 @@ end
 def process_initiative(cunning)
     cunning * 10
 end
-
-apprentice_hash = {
-    "class" => "apprentice",
-    "stats" => {
-        "mental" => 8,
-        "enmity" => 7
-    }
-}
-
-brawler_hash = {
-    "class" => "brawler",
-    "stats" => {
-        "might" => 7,
-        "mental" => 6,
-        "vitality" => 6,
-        "resolve" => 6
-    }
-}
-
-initiate_hash = {
-    "class" => "initiate",
-    "stats" => {
-        "mental" => 7,
-        "influence" => 7,
-        "resolve" => 6
-    }
-}
-
-scoundrel_hash = {
-    "class" => "scoundrel",
-    "stats" => {
-        "cunning" => 7,
-        "mental" => 6,
-        "enmity" => 6,
-        "luck" => 1
-    }
-}
 
 def process_dependent_stats(new_creature, stats)
     new_creature["health"] = process_health(stats["vitality"])
@@ -97,16 +96,13 @@ def generate_creature(base_stats, creature)
     new_creature.to_json
 end
 
+puts generate_creature(base_creature, apprentice)
 puts
-puts generate_creature(base_creature, apprentice_hash)
+puts generate_creature(base_creature, brawler)
 puts
-puts generate_creature(base_creature, brawler_hash)
+puts generate_creature(base_creature, initiate)
 puts
-puts generate_creature(base_creature, initiate_hash)
-puts
-puts generate_creature(base_creature, scoundrel_hash)
-puts
-
+puts generate_creature(base_creature, scoundrel)
 
 
 
