@@ -47,14 +47,9 @@ def process_mana(mental)
     mental * 5
 end
 
-def process_initiative(cunning)
-    cunning * 10
-end
-
 def process_dependent_stats(new_creature, stats)
     new_creature[:health] = process_health(stats[:vitality])
     new_creature[:mana] = process_mana(stats[:mental])
-    new_creature[:initiative] = process_initiative(stats[:cunning])
 end
 
 def select_name

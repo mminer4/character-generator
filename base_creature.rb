@@ -19,8 +19,7 @@ class BaseCreature
             class: "creature",
             stats: isolated_stats,
             health: 25,
-            mana: 15,
-            initiative: 50
+            mana: 15
         }
 
     end
