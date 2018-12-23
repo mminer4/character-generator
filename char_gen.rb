@@ -1,5 +1,6 @@
 require 'json'
 require_relative 'base_creature'
+require_relative 'male_names'
 
 apprentice = {
     class: "apprentice",
@@ -56,6 +57,15 @@ def process_dependent_stats(new_creature, stats)
     new_creature[:initiative] = process_initiative(stats[:cunning])
 end
 
+def select_name
+    names_collection = NamesCollection::MALE_NAMES
+    names_collection.sample
+end
+
+def assign_name_and_class
+
+end
+
 def create_base_creature
     base_creature = BaseCreature.new
 end
@@ -65,6 +75,7 @@ def generate_creature(creature)
     new_creature = create_base_creature.info
 
     new_creature[:class] = creature[:class]
+    new_creature[:name] = select_name
 
     stats = new_creature[:stats]
 

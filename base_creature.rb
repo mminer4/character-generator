@@ -15,6 +15,7 @@ class BaseCreature
         isolated_stats = @base_creature_stats
 
         @base_creature = {
+            name: "N/A",
             class: "creature",
             stats: isolated_stats,
             health: 25,
