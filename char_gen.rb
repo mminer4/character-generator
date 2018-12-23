@@ -57,10 +57,6 @@ def select_name
     names_collection.sample
 end
 
-def assign_name_and_class
-
-end
-
 def create_base_creature
     base_creature = BaseCreature.new
 end
