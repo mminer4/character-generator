@@ -82,16 +82,3 @@ def generate_creature(creature)
 
     new_creature.to_json
 end
-
-puts generate_creature(apprentice)
-puts
-puts generate_creature(brawler)
-puts
-puts generate_creature(initiate)
-puts
-puts generate_creature(scoundrel)
-
-
-
-
-
