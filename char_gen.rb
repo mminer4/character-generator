@@ -1,7 +1,7 @@
 require 'json'
-require_relative 'base_creature'
-require_relative 'names_collection'
-require_relative 'class_stats'
+require_relative 'base_stats/base_creature'
+require_relative 'names/names_collection'
+require_relative 'base_stats/class_stats'
 
 class CharacterGenerator
 
@@ -61,3 +61,5 @@ class CharacterGenerator
         generate_creature(ClassStats::SCOUNDREL)
     end
 end
+
+puts CharacterGenerator.new.make_apprentice
