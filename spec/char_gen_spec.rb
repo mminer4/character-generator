@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative '../char_gen'
-require_relative '../base_stats/base_creature'
+require_relative '../lib/char_gen'
+require_relative '../lib/base_stats/base_creature'
 
 describe CharacterGenerator do
     before(:each) do
