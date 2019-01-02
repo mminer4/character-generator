@@ -61,5 +61,3 @@ class CharacterGenerator
         generate_creature(ClassStats::SCOUNDREL)
     end
 end
-
-puts CharacterGenerator.new.make_apprentice
